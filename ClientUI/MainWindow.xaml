@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Closed="Window_Closed">
+    <Window.Resources>
+        <DataTemplate x:Key="imageDataTemplate">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="title.jpg" Margin="10" Width="100"></Image>
+                <TextBlock Text="{Binding Name}"></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <ListBox Name="list1" ItemTemplate="{StaticResource imageDataTemplate}"
+                 ItemsSource="{Binding}"></ListBox>
+
     </Grid>
 </Window>
